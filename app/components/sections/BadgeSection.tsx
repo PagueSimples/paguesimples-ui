@@ -5,8 +5,7 @@ import { H2, Small } from "../ui/typography";
 export function BadgeSection() {
   return (
     <section className="py-16 bg-accent/30">
-      <div className="max-w-4xl px-6">
-        <div className="max-w-4xl">
+      <div className="max-w-4xl mx-auto px-6">
           <H2 className="mb-8">Emblemas</H2>
           <Card>
             <CardHeader>
@@ -16,9 +15,9 @@ export function BadgeSection() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-6">
-                <div>
-                  <Small className="text-muted-foreground block mb-3">Status de Pagamento</Small>
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  <Small className="text-muted-foreground">Status de Pagamento</Small>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="default">Aprovado</Badge>
                     <Badge variant="secondary">Pendente</Badge>
@@ -26,16 +25,16 @@ export function BadgeSection() {
                     <Badge variant="outline">Processando</Badge>
                   </div>
                 </div>
-                <div>
-                  <Small className="text-muted-foreground block mb-3">Tipos de Plano</Small>
+                <div className="flex flex-col gap-3">
+                  <Small className="text-muted-foreground">Tipos de Plano</Small>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="default">Premium</Badge>
                     <Badge variant="secondary">Standard</Badge>
                     <Badge variant="outline">Basic</Badge>
                   </div>
                 </div>
-                <div>
-                  <Small className="text-muted-foreground block mb-3">Stack de Tecnologia</Small>
+                <div className="flex flex-col gap-3">
+                  <Small className="text-muted-foreground">Stack de Tecnologia</Small>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="outline">React</Badge>
                     <Badge variant="outline">Next.js</Badge>
@@ -47,7 +46,6 @@ export function BadgeSection() {
               </div>
             </CardContent>
           </Card>
-        </div>
       </div>
     </section>
   );

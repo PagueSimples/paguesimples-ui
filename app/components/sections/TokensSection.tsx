@@ -48,8 +48,7 @@ export function TokensSection() {
 
   return (
     <section className="py-16 bg-accent/30">
-      <div className="max-w-4xl  px-6">
-        <div className="max-w-4xl">
+      <div className="max-w-4xl mx-auto px-6">
           <H2 className="mb-8">Tokens de Design</H2>
           <div className="grid gap-6">
             
@@ -72,7 +71,7 @@ export function TokensSection() {
                         className="w-full h-16 rounded-md border border-border mb-3"
                         style={{ backgroundColor: color.value }}
                       />
-                      <div className="space-y-1">
+                      <div className="flex flex-col gap-1">
                         <div className="font-medium text-sm text-foreground">
                           {color.name}
                           {color.description && (
@@ -95,23 +94,26 @@ export function TokensSection() {
                 {/* Como usar */}
                 <div className="bg-muted/50 rounded-lg p-6">
                   <div className="font-semibold text-sm mb-4">Como usar as cores</div>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="text-sm font-medium mb-2">CSS Custom Properties:</div>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                      <div className="text-sm font-medium">CSS Custom Properties:</div>
                       <code className="text-xs bg-background px-2 py-1 rounded border font-mono">
                         color: var(--primary-500);
                       </code>
                     </div>
-                    <div>
-                      <div className="text-sm font-medium mb-2">Tailwind (via tokens):</div>
+                    <div className="flex flex-col gap-2">
+                      <div className="text-sm font-medium">Tailwind v4:</div>
                       <code className="text-xs bg-background px-2 py-1 rounded border font-mono">
-                        className="bg-primary text-primary-foreground"
+                        className=&quot;bg-primary text-primary-foreground&quot;
                       </code>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        Gerado automaticamente via @theme
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-sm font-medium mb-2">JavaScript (via tokens):</div>
+                    <div className="flex flex-col gap-2">
+                      <div className="text-sm font-medium">JavaScript (via tokens):</div>
                       <code className="text-xs bg-background px-2 py-1 rounded border font-mono">
-                        import &#123; pagueSimples &#125; from "@/tokens"
+                        import &#123; pagueSimples &#125; from &quot;@/tokens&quot;
                       </code>
                     </div>
                   </div>
@@ -129,7 +131,7 @@ export function TokensSection() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2">
+                  <div className="flex flex-col gap-2">
                     {grayColors.map((color) => (
                       <div key={color.name} className="flex items-center gap-3">
                         <div 
@@ -145,7 +147,7 @@ export function TokensSection() {
               </Card>
 
               {/* Cores de Feedback e Espaçamento */}
-              <div className="space-y-6">
+              <div className="flex flex-col gap-6">
                 <Card id="tokens-feedback">
                   <CardHeader>
                     <CardTitle>Cores de Feedback</CardTitle>
@@ -154,7 +156,7 @@ export function TokensSection() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
+                    <div className="flex flex-col gap-2">
                       {feedbackColors.map((color) => (
                         <div key={color.name} className="flex items-center gap-3">
                           <div 
@@ -177,7 +179,7 @@ export function TokensSection() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-3">
+                    <div className="flex flex-col gap-3">
                       {spacingItems.map((item) => (
                         <div key={item.size} className="flex items-center gap-4">
                           <div className="bg-primary rounded" style={{ width: item.width, height: '16px' }} />
@@ -191,7 +193,6 @@ export function TokensSection() {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );

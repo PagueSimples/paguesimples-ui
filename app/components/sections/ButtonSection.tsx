@@ -5,8 +5,7 @@ import { H2, Small } from "../ui/typography";
 export function ButtonSection() {
   return (
     <section className="py-16 bg-accent/30">
-      <div className="max-w-4xl px-6">
-        <div className="max-w-4xl">
+      <div className="max-w-4xl mx-auto px-6">
           <H2 className="mb-8">Botões</H2>
           <div className="grid gap-8 lg:grid-cols-2">
             <Card id="button-variants">
@@ -17,7 +16,7 @@ export function ButtonSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4">
+                <div className="flex flex-col gap-4">
                   <div className="flex flex-wrap gap-3">
                     <Button variant="default">Padrão</Button>
                     <Button variant="success">Sucesso</Button>
@@ -44,8 +43,8 @@ export function ButtonSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4">
-                  <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center flex-wrap gap-3">
                     <Button size="sm">Pequeno</Button>
                     <Button size="default">Padrão</Button>
                     <Button size="lg">Grande</Button>
@@ -63,7 +62,6 @@ export function ButtonSection() {
               </CardContent>
             </Card>
           </div>
-        </div>
       </div>
     </section>
   );

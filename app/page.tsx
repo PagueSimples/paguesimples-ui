@@ -14,31 +14,30 @@ import {
 } from "./components/sections";
 
 export default function DesignSystemDemo() {
+  const sections = [
+    { id: "hero", Component: HeroSection },
+    { id: "typography", Component: TypographySection },
+    { id: "buttons", Component: ButtonSection },
+    { id: "forms", Component: FormSection },
+    { id: "badges", Component: BadgeSection },
+    { id: "cards", Component: CardSection },
+    { id: "tokens", Component: TokensSection },
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300 lg:ml-64">
+    <div className="flex min-h-screen bg-background text-foreground">
+      {/* Sidebar */}
       <Sidebar />
-      <section id="hero">
-        <HeroSection />
-      </section>
-      <section id="typography">
-        <TypographySection />
-      </section>
-      <section id="buttons">
-        <ButtonSection />
-      </section>
-      <section id="forms">
-        <FormSection />
-      </section>
-      <section id="badges">
-        <BadgeSection />
-      </section>
-      <section id="cards">
-        <CardSection />
-      </section>
-      <section id="tokens">
-        <TokensSection />
-      </section>
-      <Footer />
+      
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col">
+        {sections.map(({ id, Component }) => (
+          <section key={id} id={id}>
+            <Component />
+          </section>
+        ))}
+        <Footer />
+      </main>
     </div>
   );
 }

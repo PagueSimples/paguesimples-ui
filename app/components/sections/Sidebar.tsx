@@ -104,11 +104,11 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 w-64 h-screen bg-card/95 backdrop-blur-sm border-r border-border hidden lg:block">
+    <aside className="bg-card border-r border-border hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen">
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="p-6 border-b border-border">
-          <div className="flex items-center space-x-3 mb-4 flex-col">
+        <div className="flex flex-col gap-4 p-6 border-b border-border">
+          <div className="flex flex-col items-center gap-1">
             <H3 className="text-foreground">PagueSimples</H3>
             <Muted className="text-xs">Design System</Muted>
           </div>
@@ -126,7 +126,7 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 p-4 overflow-y-auto">
-          <div className="space-y-1">
+          <div className="flex flex-col gap-1">
             {sections.map((section) => (
               <div key={section.id}>
                 {/* Main section */}
@@ -182,7 +182,7 @@ export function Sidebar() {
 
                 {/* Subsections */}
                 {section.subsections && expandedSections.includes(section.id) && (
-                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-border/50 pl-3">
+                  <div className="ml-4 mt-1 flex flex-col gap-1 border-l-2 border-border/50 pl-3">
                     {section.subsections.map((subsection) => (
                       <Button
                         key={subsection.id}
