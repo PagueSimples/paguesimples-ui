@@ -65,6 +65,7 @@ html {
   --color-card-foreground: var(--gray-900);
   --color-popover: var(--bg-primary);
   --color-popover-foreground: var(--gray-900);
+  --color-card-border: var(--gray-300); /* Borda verde claro para cards no light mode */
 }
 
 /* Dark theme */
@@ -92,6 +93,7 @@ html {
   --color-foreground: var(--gray-50);
   --color-card: var(--dark-surface);
   --color-card-foreground: var(--gray-50);
+  --color-card-border: var(--gray-600); /* Borda verde escuro para cards */
   --color-popover: var(--dark-bg);
   --color-popover-foreground: var(--gray-50);
 }
@@ -116,6 +118,7 @@ html {
   --color-foreground: var(--color-foreground);
   --color-card: var(--color-card);
   --color-card-foreground: var(--color-card-foreground);
+  --color-card-border: var(--color-card-border);
   --color-popover: var(--color-popover);
   --color-popover-foreground: var(--color-popover-foreground);
   --radius: 0.5rem;
