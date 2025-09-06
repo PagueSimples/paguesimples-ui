@@ -1,20 +1,21 @@
 # PagueSimples Design System
 
-Sistema de Design oficial da PagueSimples - Componentes, tokens e padrões para construir aplicações fintech modernas, consistentes e acessíveis.
+Design System oficial da PagueSimples - Componentes, tokens e padrões.
 
 ## 🚀 Visão Geral
 
-O PagueSimples Design System é uma coleção completa de componentes reutilizáveis, tokens de design e diretrizes que garantem consistência visual e funcional em todos os produtos da PagueSimples. Construído com as tecnologias mais modernas do ecossistema React.
+O PagueSimples Design System é uma coleção completa de componentes reutilizáveis, tokens de design e diretrizes que garantem consistência visual em todos os produtos da PagueSimples.
 
 ### 🛠️ Stack Tecnológica
 
-- **Next.js 14+** com App Router
+- **Next.js 14+** com App Router e Turbopack
 - **TypeScript 5+** para type safety
-- **Tailwind CSS 3+** para styling
+- **Tailwind CSS v4** com @theme e CSS variables
 - **Radix UI** para componentes acessíveis
 - **shadcn/ui** como base dos componentes
 - **Ubuntu Font** como tipografia oficial
 - **Class Variance Authority (CVA)** para variants
+- **Bun** como gerenciador de pacotes
 
 ## 🎨 Princípios de Design
 
@@ -24,167 +25,37 @@ Interfaces limpas e intuitivas que facilitam a experiência do usuário em opera
 ### Consistência
 Padrões visuais e comportamentais uniformes em toda a plataforma.
 
-### Acessibilidade
-Componentes que seguem as diretrizes WCAG 2.1 AA para inclusão digital.
-
-### Performance
-Otimização para Core Web Vitals e carregamento rápido.
-
 ## 🏗️ Arquitetura do Projeto
 
 ```
 paguesimples-designpattern/
 ├── app/
 │   ├── components/
-│   │   └── ui/           # Componentes base do design system
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       ├── badge.tsx
-│   │       ├── input.tsx
-│   │       ├── typography.tsx
-│   │       └── index.ts
+│   │   ├── ui/           # Componentes base do design system
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── typography.tsx
+│   │   │   └── index.ts
+│   │   ├── sections/     # Seções da documentação
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── TypographySection.tsx
+│   │   │   ├── ButtonSection.tsx
+│   │   │   ├── FormSection.tsx
+│   │   │   ├── BadgeSection.tsx
+│   │   │   ├── CardSection.tsx
+│   │   │   ├── TokensSection.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── index.ts
+│   │   └── theme-provider.tsx
 │   ├── tokens/           # Design tokens
 │   │   └── index.ts      # Tokens de cores, espaçamento, tipografia
 │   ├── lib/
 │   │   └── utils.ts      # Utilitários (cn, etc.)
-│   └── globals.css       # Estilos globais e CSS variables
-└── tailwind.config.ts    # Configuração do Tailwind
-```
-
-## 🎨 Design Tokens
-
-### Cores Principais
-
-```typescript
-// Verde PagueSimples - Cor principal da marca
-primary: '#00DB75'      // CTAs, sucesso, elementos ativos
-primaryHover: '#00B860' // Hover states
-primaryDark: '#00753E'  // Textos, headers
-primaryLight: '#E6FAF1' // Backgrounds sutis
-```
-
-### Paleta de Cores
-
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `primary` | `#00DB75` | Botões primários, links, status de sucesso |
-| `secondary` | CSS Variable | Elementos secundários, backgrounds |
-| `accent` | CSS Variable | Destaques sutis, hover states |
-| `muted` | CSS Variable | Textos secundários, placeholders |
-
-### Espaçamento
-
-Sistema baseado em múltiplos de 4px para consistência visual:
-
-```typescript
-spacing: {
-  xs: '4px',    // Espaçamentos mínimos
-  sm: '8px',    // Elementos pequenos
-  md: '16px',   // Padrão
-  lg: '24px',   // Seções
-  xl: '32px',   // Componentes grandes
-  '2xl': '48px' // Separação de seções
-}
-```
-
-### Tipografia
-
-Utilizamos a fonte **Ubuntu** em todos os pesos:
-- `300` - Light (textos longos)
-- `400` - Regular (texto padrão)
-- `500` - Medium (labels, navegação)
-- `700` - Bold (títulos, CTAs)
-
-## 📦 Componentes
-
-### Button
-
-Botão versátil com múltiplas variantes e tamanhos.
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-// Variantes
-<Button variant="default">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="success">Success</Button>
-<Button variant="gradient">Gradient</Button>
-
-// Tamanhos
-<Button size="sm">Small</Button>
-<Button size="default">Default</Button>
-<Button size="lg">Large</Button>
-<Button size="xl">Extra Large</Button>
-<Button size="icon">🚀</Button>
-```
-
-### Typography
-
-Sistema tipográfico completo com componentes semânticos.
-
-```tsx
-import { H1, H2, H3, H4, Text, Lead, Small, Muted } from "@/components/ui/typography"
-
-// Hierarquia de títulos
-<H1>Título Principal</H1>
-<H2>Subtítulo</H2>
-<H3>Seção</H3>
-<H4>Subseção</H4>
-
-// Texto para conteúdo
-<Lead>Texto de abertura destacado</Lead>
-<Text>Parágrafo padrão</Text>
-<Small>Texto pequeno</Small>
-<Muted>Texto com menor contraste</Muted>
-```
-
-### Card
-
-Container flexível para agrupamento de conteúdo.
-
-```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-
-<Card>
-  <CardHeader>
-    <CardTitle>Título do Card</CardTitle>
-    <CardDescription>Descrição opcional</CardDescription>
-  </CardHeader>
-  <CardContent>
-    {/* Conteúdo principal */}
-  </CardContent>
-  <CardFooter>
-    {/* Ações ou informações extras */}
-  </CardFooter>
-</Card>
-```
-
-### Badge
-
-Indicadores visuais para status, categorias e metadados.
-
-```tsx
-import { Badge } from "@/components/ui/badge"
-
-<Badge variant="default">Aprovado</Badge>
-<Badge variant="secondary">Pendente</Badge>
-<Badge variant="outline">Em análise</Badge>
-<Badge variant="destructive">Rejeitado</Badge>
-```
-
-### Input
-
-Campo de entrada de dados com suporte a diferentes tipos.
-
-```tsx
-import { Input } from "@/components/ui/input"
-
-<Input type="email" placeholder="seu@email.com" />
-<Input type="password" placeholder="••••••••" />
-<Input type="tel" placeholder="(11) 99999-9999" />
-<Input type="number" placeholder="R$ 0,00" />
+│   └── globals.css       # Estilos globais com @theme do Tailwind v4
+└── postcss.config.mjs    # Configuração PostCSS para Tailwind v4
 ```
 
 ## 🚀 Instalação e Configuração
@@ -192,32 +63,20 @@ import { Input } from "@/components/ui/input"
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/paguesimples/design-system.git
-cd design-system
+git clone https://github.com/paguesimples/paguesimples-ui.git
+cd paguesimples-ui
 ```
 
 ### 2. Instale as dependências
 
 ```bash
-npm install
-# ou
-yarn install
-# ou
-pnpm install
-# ou
 bun install
 ```
 
 ### 3. Execute o projeto
 
 ```bash
-npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
-# ou
-bun dev
+bun dev  # Desenvolvimento com Turbopack
 ```
 
 ### 4. Acesse o sistema
@@ -226,11 +85,11 @@ Abra [http://localhost:3000](http://localhost:3000) para ver o design system em 
 
 ## 🎯 Uso em Projetos
 
-### Instalação como Package
+### Instalação como Package (AINDA NÃO IMPLEMENTADO)
 
 ```bash
-# Quando publicado no npm
-npm install @paguesimples/design-system
+# Quando publicado no bun
+bun install @paguesimples/design-system
 ```
 
 ### Import dos Componentes
@@ -261,57 +120,62 @@ function MyComponent() {
 }
 ```
 
-### Configuração do Tailwind
+### Configuração do Tailwind v4
 
-Para usar os tokens em projetos externos, configure o Tailwind:
+O projeto usa Tailwind CSS v4 com a diretiva `@theme`. Para usar em projetos externos:
 
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#00DB75',
-          hover: '#00B860',
-          dark: '#00753E',
-          light: '#E6FAF1',
-        }
-      },
-      fontFamily: {
-        sans: ['Ubuntu', 'system-ui', 'sans-serif'],
-      }
-    }
-  }
+```css
+/* globals.css */
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: Ubuntu, system-ui, sans-serif;
+  --color-primary: var(--primary-500);
+  --color-primary-foreground: #FFFFFF;
+  /* Outras configurações... */
 }
 ```
+
+As cores são automaticamente disponíveis como classes:
+- `bg-primary`, `text-primary`, `border-primary`
+- `bg-card-border` (muda com o tema)
+- Todas as variações de cores definidas
 
 ## 🎨 Temas e Customização
 
 ### Dark Mode
 
-O sistema suporta modo escuro automático usando CSS variables:
+O sistema suporta modo escuro automático usando CSS variables e theme provider:
 
 ```tsx
-// Ativação manual do dark mode
-document.documentElement.classList.add('dark')
+// O tema é gerenciado pelo ThemeProvider
+import { ThemeProvider } from "@/components/theme-provider"
+
+// Componentes automaticamente se adaptam ao tema
+<Card> // Borda muda de gray-300 (light) para gray-600 (dark)
 ```
 
 ### Customização de Tokens
 
-Override das CSS variables para personalização:
+O sistema usa Tailwind CSS v4 com a diretiva `@theme` para configuração de cores:
 
 ```css
+/* globals.css */
+@theme {
+  --color-primary: var(--color-primary);
+  --color-card-border: var(--color-card-border);
+  /* Outras variáveis de cor... */
+}
+
+/* CSS Variables para temas */
 :root {
-  --primary: 0 219 117; /* #00DB75 em HSL */
-  --secondary: 210 40% 98%;
-  --accent: 210 40% 96%;
+  --color-primary: var(--primary-500);
+  --color-card-border: var(--gray-300); /* Borda clara */
 }
 
 .dark {
-  --primary: 0 219 117;
-  --secondary: 217.2 32.6% 17.5%;
-  --accent: 217.2 32.6% 17.5%;
+  --color-primary: var(--primary-500);
+  --color-card-border: var(--gray-600); /* Borda escura */
 }
 ```
 
@@ -329,49 +193,20 @@ screens: {
 }
 ```
 
-## ♿ Acessibilidade
-
-### Padrões Implementados
-
-- **Navegação por teclado** em todos os componentes interativos
-- **ARIA labels** e roles apropriados
-- **Contraste de cores** seguindo WCAG 2.1 AA
-- **Focus indicators** visíveis e consistentes
-- **Screen reader** support
-
-### Exemplo de Uso Acessível
-
-```tsx
-<Button 
-  aria-label="Confirmar pagamento de R$ 150,00"
-  className="focus:ring-2 focus:ring-primary"
->
-  Confirmar Pagamento
-</Button>
-```
-
 ## 🧪 Testes
 
 ### Executar Testes
 
 ```bash
-npm run test
-npm run test:watch
-npm run test:coverage
+bun run test
+bun run test:watch
+bun run test:coverage
 ```
 
 ### Testes de Acessibilidade
 
 ```bash
-npm run test:a11y
-```
-
-## 📖 Storybook
-
-Documentação interativa dos componentes:
-
-```bash
-npm run storybook
+bun run test:a11y
 ```
 
 ## 🤝 Contribuição
@@ -410,31 +245,40 @@ test: adiciona testes para Typography
 ```json
 {
   "dev": "next dev --turbo",
-  "build": "next build",
+  "build": "next build --turbo",
   "start": "next start",
-  "lint": "next lint",
-  "test": "jest",
-  "test:watch": "jest --watch",
-  "storybook": "storybook dev -p 6006",
-  "chromatic": "chromatic --exit-zero-on-changes"
+  "lint": "next lint"
 }
 ```
 
-## 📊 Performance
+### Comandos importantes:
 
-### Core Web Vitals
-
-- **LCP (Largest Contentful Paint)**: < 2.5s
-- **FID (First Input Delay)**: < 100ms
-- **CLS (Cumulative Layout Shift)**: < 0.1
-
-### Bundle Size
-
-- **Componentes otimizados** para tree-shaking
-- **CSS purging** automático
-- **Lazy loading** quando apropriado
-
+```bash
+bun dev          # Desenvolvimento com Turbopack
+bun run build    # Build de produção (executar antes de commits)
+bun run lint     # Verificar código com ESLint
+```
 ## 🔮 Roadmap
+
+### Funcionalidades Implementadas
+
+- [x] **Navegação**
+  - [x] Sidebar hierárquica com subseções
+  - [x] Scroll suave para seções
+  - [x] Indicador de seção ativa
+
+- [x] **Componentes Base**
+  - [x] Button com variantes (default, secondary, outline, ghost, success, gradient)
+  - [x] Typography (H1, H2, H3, H4, Text, Lead, Small, Muted)
+  - [x] Card com bordas temáticas
+  - [x] Badge com variantes semânticas
+  - [x] Input com focus states
+
+- [x] **Sistema de Design**
+  - [x] Tokens de cores completos
+  - [x] Suporte a dark mode
+  - [x] Tailwind CSS v4 com @theme
+  - [x] CSS Variables dinâmicas
 
 ### Próximas Funcionalidades
 
@@ -462,12 +306,6 @@ test: adiciona testes para Typography
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 👥 Time
-
-- **Design System Lead**: Time PagueSimples
-- **Maintainers**: Equipe de Produto e Engenharia
-- **Contributors**: Comunidade PagueSimples
-
 ## 📞 Suporte
 
 - **Issues**: [GitHub Issues](https://github.com/paguesimples/design-system/issues)
@@ -478,5 +316,3 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ---
 
 **Construído com ❤️ pela equipe PagueSimples**
-
-*Simplificando pagamentos através de design consistente e tecnologia de ponta.*
