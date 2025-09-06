@@ -1,0 +1,10 @@
+// PagueSimples Design System Demo Sections
+export { HeroSection } from "./HeroSection";
+export { TypographySection } from "./TypographySection";
+export { ButtonSection } from "./ButtonSection";
+export { FormSection } from "./FormSection";
+export { BadgeSection } from "./BadgeSection";
+export { CardSection } from "./CardSection";
+export { TokensSection } from "./TokensSection";
+export { Sidebar } from "./Sidebar";
+export { Footer } from "./Footer";
