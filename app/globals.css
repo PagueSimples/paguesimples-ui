@@ -87,7 +87,7 @@ html {
   --color-destructive: var(--error);
   --color-destructive-foreground: var(--gray-50);
   --color-border: var(--dark-border);
-  --color-input: var(--dark-border);
+  --color-input: var(--gray-600);
   --color-ring: var(--primary-500);
   --color-background: var(--dark-bg);
   --color-foreground: var(--gray-50);
