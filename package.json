@@ -1,12 +1,14 @@
 {
-  "name": "paguesimples-designpattern",
+  "name": "@paguesimples/design-system",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -20,6 +22,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.6",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -29,6 +32,17 @@
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5"
-  }
+    "turbo": "^2.5.6",
+    "typescript": "^5",
+    "storybook": "^9.1.5",
+    "@storybook/nextjs": "^9.1.5",
+    "@chromatic-com/storybook": "^4.1.1",
+    "@storybook/addon-docs": "^9.1.5",
+    "@storybook/addon-onboarding": "^9.1.5",
+    "eslint-plugin-storybook": "^9.1.5"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
